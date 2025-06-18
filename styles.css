@@ -12,6 +12,7 @@ body {
     position: sticky;
     top: 0;
     z-index: 100;
+    width: 100%;
 }
 
 .nav-container {
@@ -27,18 +28,24 @@ body {
     display: flex;
     align-items: center;
     text-decoration: none;
-    color: #fff;
-    font-weight: 700;
-    font-size: 1.3rem;
-    letter-spacing: 1px;
 }
 
 .nav-logo-img {
-    width: 40px;
-    height: 40px;
-    border-radius: 6px;
-    margin-right: 0.7rem;
+    width: 44px;
+    height: 44px;
+    border-radius: 8px;
+    margin-right: 0.8rem;
     box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    background: #fff;
+    object-fit: cover;
+}
+
+.nav-logo-text {
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.25rem;
+    letter-spacing: 1px;
+    font-family: 'Segoe UI', Arial, sans-serif;
 }
 
 .nav-links {
@@ -54,9 +61,10 @@ body {
     text-decoration: none;
     font-weight: 500;
     font-size: 1rem;
-    transition: color 0.2s;
-    padding: 0.3rem 0.5rem;
-    border-radius: 3px;
+    transition: background 0.2s, color 0.2s;
+    padding: 0.4rem 0.9rem;
+    border-radius: 4px;
+    display: block;
 }
 
 .nav-links li a:hover,
@@ -69,7 +77,7 @@ header {
     background: linear-gradient(90deg, #003366 60%, #00509e 100%);
     color: #fff;
     text-align: center;
-    padding: 3rem 1rem 2rem 1rem;
+    padding: 2.5rem 1rem 1.5rem 1rem;
     border-bottom-left-radius: 30px;
     border-bottom-right-radius: 30px;
     margin-bottom: 2rem;
@@ -77,11 +85,8 @@ header {
 }
 
 .logo {
-    width: 120px;
-    height: auto;
-    border-radius: 10px;
-    margin-bottom: 1rem;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+    /* Removed from header, now only in navbar */
+    display: none;
 }
 
 .tagline {
@@ -137,7 +142,7 @@ a:hover {
     color: #003366;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 900px) {
     .nav-container {
         flex-direction: column;
         align-items: flex-start;
@@ -146,6 +151,7 @@ a:hover {
     .nav-links {
         gap: 1rem;
         font-size: 0.98rem;
+        margin-top: 0.5rem;
     }
     main {
         padding: 1rem;
