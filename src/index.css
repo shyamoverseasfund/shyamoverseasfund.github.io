@@ -1,37 +1,33 @@
 :root {
   color-scheme: light;
 
-  /* Palette — modern finance premium */
-  --navy-950: #060b16;
-  --navy-900: #0a1428;
-  --navy-800: #0f1e38;
-  --navy-700: #16304f;
-  --navy-600: #1f4066;
+  /* Palette — institutional / corporate asset manager */
+  --black: #000000;
+  --near-black: #0a0a0a;
+  --ink-900: #111111;
+  --ink-700: #3a3a38;
+  --ink-500: #6b6b67;
+  --ink-300: #9d9d99;
 
-  --gold-300: #ecd8a6;
-  --gold-400: #d9b876;
-  --gold-500: #c69c4e;
-  --gold-600: #a97f34;
+  --white: #ffffff;
+  --paper: #f7f6f3;
+  --gray-100: #eeece7;
+  --gray-200: #e2dfd8;
 
-  --ivory-50: #fbf9f4;
-  --ivory-100: #f4efe4;
-  --ivory-200: #e9e0cd;
+  --accent: #1f74b0;
+  --accent-dark: #14507d;
+  --accent-teal: #1fae8e;
+  --accent-tint: #eaf1f7;
+  --accent-gradient: linear-gradient(135deg, var(--accent-teal), var(--accent));
 
-  --ink-900: #14181f;
-  --ink-700: #333947;
-  --ink-500: #5b6272;
-  --ink-300: #9096a3;
+  --line: rgba(10, 10, 10, 0.12);
+  --line-on-dark: rgba(255, 255, 255, 0.16);
 
-  --line: rgba(20, 24, 31, 0.1);
-  --line-on-dark: rgba(255, 255, 255, 0.14);
-
-  --shadow-soft: 0 10px 40px rgba(10, 20, 40, 0.08);
-  --shadow-lift: 0 20px 60px rgba(10, 20, 40, 0.16);
-
-  --font-serif: 'Cormorant Garamond', 'Georgia', serif;
+  --font-display: 'Archivo', 'Helvetica Neue', Arial, sans-serif;
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 
-  --container: 1140px;
+  --container: 1180px;
+  --radius: 4px;
 }
 
 * {
@@ -40,7 +36,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 88px;
+  scroll-padding-top: 76px;
 }
 
 body {
@@ -48,16 +44,18 @@ body {
   padding: 0;
   font-family: var(--font-sans);
   color: var(--ink-700);
-  background: var(--ivory-50);
+  background: var(--white);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  overflow-x: hidden;
 }
 
 h1, h2, h3, h4 {
-  font-family: var(--font-serif);
-  color: var(--navy-900);
-  font-weight: 600;
-  line-height: 1.15;
+  font-family: var(--font-display);
+  color: var(--ink-900);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
   margin: 0;
 }
 
@@ -83,7 +81,7 @@ button {
 .container {
   max-width: var(--container);
   margin: 0 auto;
-  padding: 0 1.75rem;
+  padding: 0 2rem;
 }
 
 .eyebrow {
@@ -91,22 +89,63 @@ button {
   align-items: center;
   gap: 0.6rem;
   font-family: var(--font-sans);
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.16em;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--gold-600);
+  color: var(--ink-500);
 }
 
-.eyebrow::before {
-  content: '';
-  width: 28px;
-  height: 1px;
-  background: var(--gold-500);
+.eyebrow__index {
+  font-family: var(--font-display);
+  font-weight: 800;
+  color: var(--accent);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  padding: 0.95rem 2rem;
+  border-radius: var(--radius);
+  border: 1px solid transparent;
+  transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
+}
+
+.btn--primary {
+  background: var(--white);
+  color: var(--black);
+}
+
+.btn--primary:hover {
+  background: var(--accent-gradient);
+  color: var(--white);
+}
+
+.btn--outline {
+  color: var(--white);
+  border-color: var(--line-on-dark);
+}
+
+.btn--outline:hover {
+  border-color: var(--white);
+}
+
+.btn--dark {
+  background: var(--black);
+  color: var(--white);
+}
+
+.btn--dark:hover {
+  background: var(--accent-gradient);
 }
 
 @media (max-width: 640px) {
   html {
-    scroll-padding-top: 72px;
+    scroll-padding-top: 68px;
   }
 }

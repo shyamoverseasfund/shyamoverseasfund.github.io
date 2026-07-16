@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import './Footer.css'
 
 const SOCIALS = [
@@ -33,20 +34,77 @@ const SOCIALS = [
   },
 ]
 
+const LINK_COLUMNS = [
+  {
+    heading: 'Company',
+    links: [
+      { label: 'About', href: '/#about' },
+      { label: 'Mission', href: '/#mission' },
+      { label: 'Leadership', href: '/chairman' },
+    ],
+  },
+  {
+    heading: 'Focus',
+    links: [
+      { label: 'Investments', href: '/#investments' },
+      { label: 'Locations', href: '/#locations' },
+      { label: 'Contact', href: '/#contact' },
+    ],
+  },
+]
+
 export default function Footer() {
   return (
     <footer className="footer">
-      <div className="container footer__inner">
-        <div className="footer__socials">
-          {SOCIALS.map((s) => (
-            <a key={s.name} href={s.href} target="_blank" rel="noreferrer" aria-label={s.name} className="footer__icon">
-              <svg viewBox="0 0 24 24">
-                <path d={s.path} fill="currentColor" />
-              </svg>
-            </a>
+      <div className="container footer__top">
+        <div className="footer__brand">
+          <span className="footer__wordmark">
+            Shyam Overseas <strong>Fund</strong>
+          </span>
+          <p className="footer__tag">Global Multi-Asset Fund Management</p>
+        </div>
+
+        <div className="footer__links">
+          {LINK_COLUMNS.map((col) => (
+            <div className="footer__col" key={col.heading}>
+              <span className="footer__col-heading">{col.heading}</span>
+              <ul>
+                {col.links.map((link) =>
+                  link.href.startsWith('/chairman') ? (
+                    <li key={link.label}>
+                      <Link to={link.href}>{link.label}</Link>
+                    </li>
+                  ) : (
+                    <li key={link.label}>
+                      <a href={link.href}>{link.label}</a>
+                    </li>
+                  ),
+                )}
+              </ul>
+            </div>
           ))}
         </div>
-        <p className="footer__copy">&copy; {new Date().getFullYear()} Shyam Overseas Fund. All rights reserved.</p>
+
+        <div className="footer__contact">
+          <span className="footer__col-heading">Contact</span>
+          <a href="mailto:info@shyamoverseasfund.com">info@shyamoverseasfund.com</a>
+          <div className="footer__socials">
+            {SOCIALS.map((s) => (
+              <a key={s.name} href={s.href} target="_blank" rel="noreferrer" aria-label={s.name} className="footer__icon">
+                <svg viewBox="0 0 24 24">
+                  <path d={s.path} fill="currentColor" />
+                </svg>
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div className="footer__bottom">
+        <div className="container footer__bottom-inner">
+          <p>&copy; {new Date().getFullYear()} Shyam Overseas Fund. All rights reserved.</p>
+          <p>India &middot; USA &middot; UK &middot; Dubai</p>
+        </div>
       </div>
     </footer>
   )

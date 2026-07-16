@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import logo from '../assets/sof.jpg'
+import logo from '../assets/soflogo.png'
 import './Navbar.css'
 
 const NAV_LINKS = [
@@ -28,7 +28,9 @@ export default function Navbar() {
       <div className="navbar__inner container">
         <Link to="/" className="navbar__brand" onClick={() => setOpen(false)}>
           <img src={logo} alt="Shyam Overseas Fund" className="navbar__logo" />
-          <span className="navbar__name">Shyam Overseas Fund</span>
+          <span className="navbar__name">
+            Shyam Overseas <strong>Fund</strong>
+          </span>
         </Link>
 
         <button
