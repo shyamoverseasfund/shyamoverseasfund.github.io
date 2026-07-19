@@ -29,7 +29,8 @@ export default function Navbar() {
         <Link to="/" className="navbar__brand" onClick={() => setOpen(false)}>
           <img src={logo} alt="Shyam Overseas Fund" className="navbar__logo" />
           <span className="navbar__name">
-            Shyam Overseas <strong>Fund</strong>
+            <span className="navbar__name-top">Shyam Overseas</span>
+            <span className="navbar__name-bottom">Fund</span>
           </span>
         </Link>
 

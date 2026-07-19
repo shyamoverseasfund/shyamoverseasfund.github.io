@@ -1,9 +1,25 @@
 .footer {
+  position: relative;
+  overflow: hidden;
   background: var(--black);
   color: var(--ink-300);
 }
 
+.footer::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--line-on-dark) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line-on-dark) 1px, transparent 1px);
+  background-size: 64px 64px;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
 .footer__top {
+  position: relative;
+  z-index: 1;
   display: grid;
   grid-template-columns: 1.4fr 1fr 1fr;
   gap: 3rem;
@@ -11,15 +27,20 @@
 }
 
 .footer__wordmark {
-  font-family: var(--font-display);
-  font-weight: 600;
+  font-family: 'Roboto Slab', serif;
+  font-weight: 500;
   font-size: 1.1rem;
+  letter-spacing: 0.02em;
   text-transform: uppercase;
   color: var(--white);
 }
 
 .footer__wordmark strong {
   font-weight: 800;
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .footer__tag {
@@ -110,6 +131,8 @@
 }
 
 .footer__bottom {
+  position: relative;
+  z-index: 1;
   border-top: 1px solid var(--line-on-dark);
 }
 

@@ -1,10 +1,26 @@
 .chairman {
-  background: var(--paper);
+  position: relative;
+  overflow: hidden;
+  background: var(--black);
   padding: 4.5rem 0 6rem;
   min-height: 60vh;
 }
 
+.chairman::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--line-on-dark) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line-on-dark) 1px, transparent 1px);
+  background-size: 64px 64px;
+  opacity: 0.55;
+  pointer-events: none;
+}
+
 .chairman__inner {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -19,7 +35,7 @@
   font-weight: 700;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: var(--ink-500);
+  color: var(--ink-300);
   margin-bottom: 3rem;
   transition: color 0.2s ease;
 }
@@ -32,7 +48,7 @@
   width: 100%;
   max-width: 520px;
   background: var(--white);
-  border: 1px solid var(--line);
+  border: 1px solid var(--line-on-dark);
   border-radius: var(--radius);
   padding: 3rem;
   display: flex;

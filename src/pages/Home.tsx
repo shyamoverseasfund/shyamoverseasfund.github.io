@@ -55,7 +55,7 @@ export default function Home() {
       <header className="hero">
         <div className="hero__grid" aria-hidden="true" />
         <div className="container hero__content">
-          <span className="eyebrow eyebrow--light">Global Multi-Asset Fund Management</span>
+          <span className="eyebrow">Global Multi-Asset Fund Management</span>
           <h1>
             Capital, deployed with <span className="hero__accent">discipline</span>.
           </h1>

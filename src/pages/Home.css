@@ -9,18 +9,11 @@
 .section-label__rule {
   flex: 1;
   height: 1px;
-  background: var(--line);
-}
-
-.section--dark .section-label__rule {
   background: var(--line-on-dark);
 }
 
-.section--dark .eyebrow {
-  color: var(--ink-300);
-}
-
 .section-title {
+  color: var(--white);
   font-size: clamp(1.9rem, 3.4vw, 2.6rem);
   margin-bottom: 2.4rem;
   max-width: 20ch;
@@ -57,10 +50,6 @@
   gap: 1.4rem;
 }
 
-.eyebrow--light {
-  color: var(--ink-300);
-}
-
 .hero h1 {
   font-size: clamp(2.4rem, 5.6vw, 4rem);
   color: var(--white);
@@ -90,11 +79,26 @@
 
 .hero__stats {
   position: relative;
+  overflow: hidden;
   border-top: 1px solid var(--line-on-dark);
   background: var(--near-black);
 }
 
+.hero__stats::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--line-on-dark) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line-on-dark) 1px, transparent 1px);
+  background-size: 64px 64px;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
 .hero__stats-inner {
+  position: relative;
+  z-index: 1;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
 }
@@ -130,12 +134,34 @@
 
 /* ---------- Sections ---------- */
 .section {
+  position: relative;
+  overflow: hidden;
   padding: 5.5rem 0;
+  background: var(--black);
+  color: var(--ink-300);
+  --grid-color: var(--line-on-dark);
+  --grid-opacity: 0.4;
+}
+
+.section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--grid-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+  background-size: 64px 64px;
+  opacity: var(--grid-opacity);
+  pointer-events: none;
+}
+
+.section > .container {
+  position: relative;
+  z-index: 1;
 }
 
 .section--dark {
-  background: var(--black);
-  color: var(--ink-300);
+  --grid-opacity: 0.35;
 }
 
 .section--dark h2 {
@@ -143,7 +169,7 @@
 }
 
 .section--paper {
-  background: var(--paper);
+  --grid-opacity: 0.55;
 }
 
 /* ---------- About ---------- */
@@ -157,13 +183,14 @@
 .about__body h2 {
   flex: 1 1 260px;
   font-size: clamp(1.9rem, 3.4vw, 2.6rem);
+  color: var(--white);
 }
 
 .about__text {
   flex: 1.4 1 420px;
   max-width: 62ch;
   font-size: 1.06rem;
-  color: var(--ink-500);
+  color: var(--ink-300);
 }
 
 /* ---------- Mission ---------- */
@@ -184,8 +211,8 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 0;
-  border-top: 1px solid var(--line);
-  border-left: 1px solid var(--line);
+  border-top: 1px solid var(--line-on-dark);
+  border-left: 1px solid var(--line-on-dark);
 }
 
 .investment-card {
@@ -197,12 +224,12 @@
 }
 
 .investment-card:hover {
-  background: var(--black);
+  background: var(--near-black);
   color: var(--white);
 }
 
 .investment-card:hover .investment-card__index {
-  color: var(--ink-500);
+  color: var(--ink-300);
 }
 
 .investment-card:hover p {
@@ -241,7 +268,7 @@
 
 /* ---------- Locations ---------- */
 .locations-table {
-  border-top: 1px solid var(--line);
+  border-top: 1px solid var(--line-on-dark);
 }
 
 .locations-table__row {
@@ -250,7 +277,7 @@
   align-items: center;
   gap: 1.5rem;
   padding: 1.4rem 0;
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid var(--line-on-dark);
   transition: padding-left 0.2s ease;
 }
 
@@ -269,7 +296,7 @@
   font-family: var(--font-display);
   font-weight: 700;
   font-size: 1.3rem;
-  color: var(--ink-900);
+  color: var(--white);
 }
 
 .locations-table__detail {
@@ -277,7 +304,7 @@
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--ink-500);
+  color: var(--ink-300);
 }
 
 .locations-table__arrow {
@@ -291,14 +318,14 @@
   gap: 1.8rem;
   max-width: 640px;
   background: var(--white);
-  border: 1px solid var(--line);
+  border: 1px solid var(--line-on-dark);
   border-radius: var(--radius);
   padding: 1.8rem 2rem;
   transition: border-color 0.2s ease, background 0.2s ease;
 }
 
 .leader-card:hover {
-  border-color: var(--ink-900);
+  border-color: var(--accent);
 }
 
 .leader-card__avatar {
